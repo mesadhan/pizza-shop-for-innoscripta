@@ -3,9 +3,10 @@ import logo from './logo.png';
 import deliveryLogo from './logo-delivery.png';
 import './App.scss';
 import NavBar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
-    let year = new Date().getFullYear()
+
     return (
         <div className="App">
             <NavBar/>
@@ -18,9 +19,7 @@ function App() {
                 <img src={deliveryLogo}  className="delivery-desktop-logo" alt="deliveryLogo" />
             </header>
 
-            <div id="footer">
-                <p> © {year} , Pizza Shop Innoscripta GmbH. All rights reserved.</p>
-            </div>
+            <Footer/>
         </div>
     );
 }

@@ -14,7 +14,6 @@ class NavBar extends Component {
                     <img src={bandLogo} className="logo-band" alt="Pizza Shop" />
                 </Link>
 
-
                 <div className="leftMenus">
                     <Link to="/" style={{fontWeight: 'bold'}}>Pizza Shop</Link>
                     <Link to="/menus">Menus</Link>
@@ -22,13 +21,14 @@ class NavBar extends Component {
 
                 <div className="rightMenus">
                     <div>
-                        <Link to="/blog">Orders</Link>
-                        <Link to="/about">Login |</Link>
+                        <Link to="/About">About</Link>
+                        <Link to="/login">Login |</Link>
                     </div>
 
-
-                    <p style={{fontWeight: 'bold', color: '#fff'}}>5</p>
-                    <img src={cartLogo} className="icon-cart" alt="cart logo" />
+                    <Link style={{display: 'flex'}} to="/cart">
+                        <p style={{fontWeight: 'bold', color: '#fff'}}>5</p>
+                        <img src={cartLogo} className="icon-cart" alt="cart logo" />
+                    </Link>
 
                 </div>
             </div>

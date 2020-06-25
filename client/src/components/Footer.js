@@ -8,7 +8,7 @@ class Footer extends Component {
 
         return (
             <div data-test="footerComponent" className="footerComponent" id="footer">
-                <p> © {year} , Pizza Shop Innoscripta GmbH. All rights reserved.</p>
+                <div> © {year} , Pizza Shop Innoscripta GmbH. All rights reserved.</div>
             </div>
         )
 

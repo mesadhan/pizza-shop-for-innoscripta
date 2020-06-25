@@ -15,15 +15,19 @@ function App() {
     return (
         <div className="App">
             <NavBar/>
-            <Footer/>
 
-            <Switch>
-                <Route exact path="/" component={HomePage}/>
-                <Route exact path="/menus" component={Menus}/>
-                <Route exact path="/cart" component={Cart}/>
-                <Route exact path="/about" component={About}/>
-                <Route exact path="/login" component={Login}/>
-            </Switch>
+            <div className="content-container">
+                <Switch>
+                    <Route exact path="/" component={HomePage}/>
+                    <Route exact path="/menus" component={Menus}/>
+                    <Route exact path="/cart" component={Cart}/>
+                    <Route exact path="/about" component={About}/>
+                    <Route exact path="/login" component={Login}/>
+                </Switch>
+            </div>
+
+
+            <Footer/>
         </div>
     );
 }

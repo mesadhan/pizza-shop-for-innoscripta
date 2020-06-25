@@ -13,7 +13,10 @@ import rootReducer from './reducers';
 
 
 // create store
-const initState = {};
+const cartItems = localStorage.getItem("cartItems")
+    ? JSON.parse(localStorage.getItem("cartItems")) : [];
+
+const initState = { cart: { items: cartItems  } };
 const store = createStore(rootReducer, initState, applyMiddleware(reduxThunk));
 
 ReactDOM.render(

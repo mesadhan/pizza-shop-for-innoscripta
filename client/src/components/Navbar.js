@@ -4,10 +4,15 @@ import './NavBar.scss';
 import cartLogo from "../logo-cart.svg";
 import bandLogo from "../logo-band.png";
 
+import {connect} from 'react-redux';
+
 
 class NavBar extends Component {
 
     render() {
+        let cartCount = this.props.cartItems.length;
+        document.title = "Pizza Shop - Menu";
+
         return (
             <div data-test="navComponent" className="navComponent">
                 <Link to="/">
@@ -15,7 +20,7 @@ class NavBar extends Component {
                 </Link>
 
                 <div className="leftMenus">
-                    <Link to="/" style={{fontWeight: 'bold'}}>Pizza Shop</Link>
+                    <Link className="pizza-shop-menu" to="/" style={{fontWeight: 'bold'}}>Pizza Shop</Link>
                     <Link to="/menus">Menus</Link>
                 </div>
 
@@ -26,7 +31,7 @@ class NavBar extends Component {
                     </div>
 
                     <Link style={{display: 'flex'}} to="/cart">
-                        <p style={{fontWeight: 'bold', color: '#fff'}}>5</p>
+                        <p style={{fontWeight: 'bold', color: '#fff'}}>{cartCount}</p>
                         <img src={cartLogo} className="icon-cart" alt="cart logo" />
                     </Link>
 
@@ -37,4 +42,8 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+
+const mapStateToProps = (state) => ({
+    cartItems: state.cart.items,
+});
+export default connect(mapStateToProps,{})(NavBar);

@@ -14,7 +14,7 @@ class Pizza extends Component {
                 <div className="flex-item card-box" >
                     <img src={img} className="thumbnail" alt={name} />
 
-                    <button style={{float: "right", margin: '5px'}} className="" onClick={() => this.props.addToCart(
+                    <button style={{float: "right", margin: '5px'}} className="cart" onClick={() => this.props.addToCart(
                         this.props.cartItems, {id, name, description, price, img}
                     )}>Add To Cart</button>
 

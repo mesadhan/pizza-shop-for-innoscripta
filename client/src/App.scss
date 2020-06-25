@@ -9,13 +9,54 @@
   margin-bottom: 100px;
 }
 
+$cartButton: 15px;
+$cartButtonHeight: 40px;
+$cartButtonWidth: 40px;
+
 button {
   transition-duration: 0.4s;
-  background-color: #F3771A;
   padding: 8px 15px;
-  font-weight: bold;
-  color: #f1f1f1;
   border: 1px solid;
+}
+
+button.cart{
+  background-color: #F3771A;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+button.cart-de{
+  background-color: #F3771A;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  width: $cartButtonWidth;
+  height: $cartButtonHeight;
+}
+button.cart-in{
+  background-color: green;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  width: $cartButtonWidth;
+  height: $cartButtonHeight;
+}
+button.cart-remove{
+  background-color: red;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  width: $cartButtonWidth;
+  height: $cartButtonHeight;
+}
+
+button.orderButton{
+  background-color: #EA2D27;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  height: $cartButtonHeight;
+  width: 100%;
 }
 
 button:hover {

@@ -1,0 +1,23 @@
+.cartComponent{
+
+  padding: 5px;
+
+    .cart-item-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .cart-item-container .cart-item {
+      margin: 5px;
+      justify-content: center;
+    }
+
+
+    .cartBox{
+      max-width: 500px;
+      background: #fce8be;
+    }
+
+
+}

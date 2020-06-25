@@ -11,11 +11,24 @@ $card-size: 330px;
   font-size: 18px;
 }
 
+.cart-panel{
+  text-align: center;
+  background: #EA2D27;
+  color: #ffffff;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: bold;
+  box-shadow: 0 0 7px rgba(0,0,0,.34);
+  overflow: hidden;
+}
+
 .flex-container-row {
   //min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-between
 }
 
 .flex-container {

@@ -8,7 +8,7 @@ import Menus from "./components/Menus";
 import About from "./components/About";
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
-import Cart from "./components/Cart";
+import Order from "./components/Order";
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route exact path="/menus" component={Menus}/>
-                    <Route exact path="/cart" component={Cart}/>
+                    <Route exact path="/order" component={Order}/>
                     <Route exact path="/about" component={About}/>
                     <Route exact path="/login" component={Login}/>
                 </Switch>

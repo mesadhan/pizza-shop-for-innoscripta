@@ -4,7 +4,7 @@ import {fetchPizzas} from '../actions/pizzaActions';
 import { connect } from "react-redux";
 import Pizza from "./Pizza";
 import CartItem from "./CartItem";
-import Cart from "./Cart";
+import {Link} from "react-router-dom";
 
 class Menu extends Component {
 
@@ -43,7 +43,10 @@ class Menu extends Component {
                                     cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
                                 }
 
-                                <button className="orderButton" style={{width: "100%"}}>Order (8 Items) </button>
+                                <Link style={{display: 'flex', textDecoration: 'none'}} to="/order">
+                                    <button className="orderButton" style={{width: "100%"}}>Order ({cartItems.length} Items) </button>
+                                </Link>
+
                             </div>
                         }
                     </div>

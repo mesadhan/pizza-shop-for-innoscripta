@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import CartItem from "./CartItem";
-import './Cart.scss';
+import './Order.scss';
 
-class Cart extends Component {
+class Order extends Component {
     render() {
         const cartItems = this.props.cartItems;
 
@@ -36,4 +36,4 @@ const mapStateToProps = (state) => ({
     cartItems: state.cart.items,
 });
 
-export default connect(mapStateToProps,{})(Cart)
+export default connect(mapStateToProps,{})(Order)

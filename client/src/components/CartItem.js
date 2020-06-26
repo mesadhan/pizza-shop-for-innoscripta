@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import './CartItem.scss';
+import {connect} from "react-redux";
+import {removeFromCart, increaseQuantity, decreaseQuantity} from '../actions/cartActions';
 
 class CartItem extends Component {
 
     render() {
-        let {name, price, img} = this.props
+        let {id, name, price, img, qnt} = this.props;
 
         return (
             <div data-test="cartItemComponent" className="cartItemComponent">
@@ -15,12 +17,7 @@ class CartItem extends Component {
                     </div>
                     <div className="cart-item">{name}</div>
                     <div className="cart-item">{price}</div>
-
-
-                    <button className="cart-de">-</button>
-                    <p>2</p>
-                    <button className="cart-in">+</button>
-                    <button className="cart-remove">X</button>
+                    <button  className="cart-remove" onClick={()=>this.props.removeFromCart(this.props.cartItems,{id: id})} >X</button>
                 </div>
 
             </div>
@@ -29,4 +26,11 @@ class CartItem extends Component {
     }
 }
 
-export default CartItem;
+const mapStateToProps = (state) => ({
+    cartItems: state.cart.items,
+});
+export default connect(mapStateToProps,{
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+})(CartItem);

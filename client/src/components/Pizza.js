@@ -5,7 +5,7 @@ import {addToCart} from '../actions/cartActions';
 class Pizza extends Component {
     render() {
 
-        const {id, name, description, price, img} = this.props
+        const {id, name, description, price, img, qnt} = this.props
 
         return (
             <div data-test="pizzaComponent" className="pizzaComponent" style={{display: 'flex'}}>
@@ -15,7 +15,7 @@ class Pizza extends Component {
                     <img src={img} className="thumbnail" alt={name} />
 
                     <button style={{float: "right", margin: '5px'}} className="cart" onClick={() => this.props.addToCart(
-                        this.props.cartItems, {id, name, description, price, img}
+                        this.props.cartItems, {id, name, description, price, img, qnt}
                     )}>Add To Cart</button>
 
                     <div style={{padding: '5px'}}>

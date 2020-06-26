@@ -4,6 +4,7 @@ import {fetchPizzas} from '../actions/pizzaActions';
 import { connect } from "react-redux";
 import Pizza from "./Pizza";
 import CartItem from "./CartItem";
+import Cart from "./Cart";
 
 class Menu extends Component {
 
@@ -12,8 +13,9 @@ class Menu extends Component {
     }
 
     render() {
-        const {pizzas} = this.props.pizzas;
-        const cartItems = this.props.cartItems;
+        let {pizzas} = this.props.pizzas;
+        let cartItems = this.props.cartItems;
+
 
         return (
             <div data-test="menusComponent" className="menusComponent">
@@ -28,19 +30,22 @@ class Menu extends Component {
                             }
                         </div>
 
-                        <div className="flex-item shopping-cart">
 
-                            <div className="cart-panel">
-                                Cart
-                                <span> - [Price $499 == @444]</span>
+
+                        {cartItems.length > 0 &&
+                            <div className="flex-item shopping-cart">
+                                <div className="cart-panel">
+                                    Cart
+                                    <span> - [Price $499 == @444]</span>
+                                </div>
+
+                                {
+                                    cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
+                                }
+
+                                <button className="orderButton" style={{width: "100%"}}>Order (8 Items) </button>
                             </div>
-
-                            {
-                                cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
-                            }
-
-                            <button className="orderButton" style={{width: "100%"}}>Order (8 Items) </button>
-                        </div>
+                        }
                     </div>
 
 

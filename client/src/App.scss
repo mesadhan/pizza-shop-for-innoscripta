@@ -109,9 +109,11 @@ button:hover {
 
 .shopping-cart {
   margin-top: 15px;
-  background: #e4d6d6;
+  //background: #e4d6d6;
   border-radius: 3px;
   min-width: 20%;
+
+  box-shadow: 0 0 7px rgba(0,0,0,.23);
 }
 
 @media screen and (max-width: 600px) {

@@ -4,5 +4,51 @@ GET http://localhost:8080/
 ### users
 GET http://localhost:8080/api/users
 
+
+### make login user
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email":"a", "password":"a"
+}
+
+
+### registration
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{"username":"a","email":"a","password":"a"}
+
+
+### login based on username & password
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email":"a", "password":"a"
+}
+
+
+
+
+### varifiy register user token
+GET http://localhost:8080/api/users/user
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTkzMjA1ODMxLCJleHAiOjE1OTMyMDk0MzF9.86wPBisZlN4Z0NyJ8VE9uMIajVgNVt0xalwPM9TEbl0
+
+
 ### pizzas data
 GET http://localhost:8080/api/pizzas
+
+
+### add new pizza
+POST http://localhost:8080/api/pizzas/add
+Content-Type: application/json
+
+{
+  "name": "Maxican1",
+  "description": "Description2",
+  "price": "22.0",
+  "img": "default.jpg"
+}

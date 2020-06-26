@@ -1,6 +1,8 @@
 const  express = require('express');
 const cors = require('cors');
-const db = require('./config/database');
+//const db = require('./models/index');
+
+
 
 const app = express();
 app.use(cors());
@@ -11,10 +13,10 @@ app.use('/static', express.static('public'))   // access 'public' dir contents u
 const routePrefix = '/api';
 
 
-// Test DB Connection
-db.authenticate()
-    .then(() => console.log('[message]', 'database connected successfully'))
-    .catch(error => console.log('[error]: ' + error));
+//Test DB Connection
+// db.authenticate()
+//     .then(() => console.log('[message]', 'database connected successfully'))
+//     .catch(error => console.log('[error]: ' + error));
 
 
 // default routes

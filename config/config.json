@@ -1,0 +1,35 @@
+{
+  "development": {
+    "username": "myapp",
+    "password": "myapp",
+    "database": "myapp_db",
+    "host": "192.168.0.105",
+    "dialect": "postgres",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  },
+  "test": {
+    "username": "mjfyuild",
+    "password": "DSUKxUWWpvA3m6SNBU4GnEk8Y_z5WyTI",
+    "database": "mjfyuild",
+    "host": "ruby.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "mjfyuild",
+    "password": "DSUKxUWWpvA3m6SNBU4GnEk8Y_z5WyTI",
+    "database": "mjfyuild",
+    "host": "ruby.db.elephantsql.com",
+    "dialect": "postgres",
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    }
+  }
+}

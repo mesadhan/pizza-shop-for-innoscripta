@@ -15,6 +15,9 @@ class Menu extends Component {
     render() {
         let {pizzas} = this.props.pizzas;
         let cartItems = this.props.cartItems;
+        let totalAmountInEuro = 0; cartItems.forEach( data => totalAmountInEuro = totalAmountInEuro + parseFloat(data.price));
+        let totalAmountInDollar = totalAmountInEuro *  1.12;        // Here, 1 EURO = 1.12 Dollar
+        totalAmountInEuro = totalAmountInEuro.toFixed(2);
 
 
         return (
@@ -36,7 +39,7 @@ class Menu extends Component {
                             <div className="flex-item shopping-cart">
                                 <div className="cart-panel">
                                     Cart
-                                    <span> - [Price $499 == @444]</span>
+                                    <span> - [Price €{totalAmountInEuro}Euro | ${totalAmountInDollar}USD]</span>
                                 </div>
 
                                 {

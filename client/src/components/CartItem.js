@@ -19,7 +19,7 @@ class CartItem extends Component {
                         <img src={img} className="" style={{width: '40px'}} alt={name} />
                     </div>
                     <div className="cart-item">{name}</div>
-                    <div className="cart-item">Price: {euroPrice} ERO <br/> ${dollarPrice} USD</div>
+                    <div className="cart-item">€{euroPrice} ERO <br/> ${dollarPrice} USD</div>
                     <button  className="cart-remove" onClick={()=>this.props.removeFromCart(this.props.cartItems,{id: id})} >X</button>
                 </div>
 

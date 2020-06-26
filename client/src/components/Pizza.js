@@ -19,9 +19,9 @@ class Pizza extends Component {
                     )}>Add To Cart</button>
 
                     <div style={{padding: '5px'}}>
-                        <div className="" >{name}</div>
+                        <div style={{color: "#EA2D27"}} className="" >{name}</div>
                         <div className="" >{description}</div>
-                        <div className="" >{price}</div>
+                        <div className="" >Price: €{price}</div>
                     </div>
                 </div>
 

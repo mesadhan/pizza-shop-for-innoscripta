@@ -30,7 +30,7 @@ class NavBar extends Component {
                         <Link to="/login">Login |</Link>
                     </div>
 
-                    <Link style={{display: 'flex'}} to="/cart">
+                    <Link style={{display: 'flex'}} to="/order">
                         <p style={{fontWeight: 'bold', color: '#fff'}}>{cartCount}</p>
                         <img src={cartLogo} className="icon-cart" alt="cart logo" />
                     </Link>

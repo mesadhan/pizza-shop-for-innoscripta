@@ -4,6 +4,7 @@ import {fetchPizzas} from '../actions/pizzaActions';
 import { connect } from "react-redux";
 import Pizza from "./Pizza";
 import CartItem from "./CartItem";
+import {Link} from "react-router-dom";
 
 class Menu extends Component {
 
@@ -12,8 +13,12 @@ class Menu extends Component {
     }
 
     render() {
-        const {pizzas} = this.props.pizzas;
-        const cartItems = this.props.cartItems;
+        let {pizzas} = this.props.pizzas;
+        let cartItems = this.props.cartItems;
+        let totalAmountInEuro = 0; cartItems.forEach( data => totalAmountInEuro = totalAmountInEuro + parseFloat(data.price));
+        let totalAmountInDollar = totalAmountInEuro *  1.12;        // Here, 1 EURO = 1.12 Dollar
+        totalAmountInEuro = totalAmountInEuro.toFixed(2);
+
 
         return (
             <div data-test="menusComponent" className="menusComponent">
@@ -28,19 +33,25 @@ class Menu extends Component {
                             }
                         </div>
 
-                        <div className="flex-item shopping-cart">
 
-                            <div className="cart-panel">
-                                Cart
-                                <span> - [Price $499 == @444]</span>
+
+                        {cartItems.length > 0 &&
+                            <div className="flex-item shopping-cart">
+                                <div className="cart-panel">
+                                    Cart
+                                    <span> - [Price €{totalAmountInEuro}Euro | ${totalAmountInDollar}USD]</span>
+                                </div>
+
+                                {
+                                    cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
+                                }
+
+                                <Link style={{display: 'flex', textDecoration: 'none'}} to="/order">
+                                    <button className="orderButton" style={{width: "100%"}}>Order ({cartItems.length} Items) </button>
+                                </Link>
+
                             </div>
-
-                            {
-                                cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
-                            }
-
-                            <button className="orderButton" style={{width: "100%"}}>Order (8 Items) </button>
-                        </div>
+                        }
                     </div>
 
 

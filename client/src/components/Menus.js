@@ -15,9 +15,17 @@ class Menu extends Component {
     render() {
         let {pizzas} = this.props.pizzas;
         let cartItems = this.props.cartItems;
-        let totalAmountInEuro = 0; cartItems.forEach( data => totalAmountInEuro = totalAmountInEuro + parseFloat(data.price));
-        let totalAmountInDollar = totalAmountInEuro *  1.12;        // Here, 1 EURO = 1.12 Dollar
-        totalAmountInEuro = totalAmountInEuro.toFixed(2);
+        let subTotalAmountInEuro = 0;
+        cartItems.forEach( data => subTotalAmountInEuro = subTotalAmountInEuro + parseFloat(data.price));
+        subTotalAmountInEuro = parseFloat(subTotalAmountInEuro.toFixed(2));
+
+
+        let deliveryCost = 10.00;
+        let totalAmountInEuro = subTotalAmountInEuro + deliveryCost;
+
+
+        let totalAmountInDollar = (subTotalAmountInEuro + deliveryCost) *  1.12;        // Here, 1 EURO = 1.12 Dollar
+        totalAmountInDollar = parseFloat(totalAmountInDollar.toFixed(2));
 
 
         return (
@@ -39,12 +47,18 @@ class Menu extends Component {
                             <div className="flex-item shopping-cart">
                                 <div className="cart-panel">
                                     Cart
-                                    <span> - [Price €{totalAmountInEuro}Euro | ${totalAmountInDollar}USD]</span>
+
                                 </div>
 
                                 {
                                     cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
                                 }
+
+                                <hr/>
+                                <p style={{padding: '5px'}}> Delivery Cost: €{deliveryCost} Euro</p>
+                                <p style={{padding: '5px'}}> Sub-Total Cost: €{subTotalAmountInEuro} Euro</p>
+                                <p style={{padding: '5px'}}> Total Cost: €{totalAmountInEuro} Euro | ${totalAmountInDollar} USD</p>
+
 
                                 <Link style={{display: 'flex', textDecoration: 'none'}} to="/order">
                                     <button className="orderButton" style={{width: "100%"}}>Order ({cartItems.length} Items) </button>

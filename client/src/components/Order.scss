@@ -5,19 +5,27 @@
     .cart-item-container{
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
     }
 
     .cart-item-container .cart-item {
+      margin: 15px;
+      padding: 5px;
+    }
+
+
+    .cardBox{
+      box-shadow: 0 0 7px rgba(0, 0, 0, .37);
       margin: 5px;
-      justify-content: center;
     }
-
-
     .cartBox{
+      box-shadow: 0 0 7px rgba(0, 0, 0, .37);
+      margin: 5px;
       max-width: 500px;
-      background: #fce8be;
     }
 
-
+  .input-field{
+    margin: 5px;
+    padding: 5px;
+    min-width: 98%;
+  }
 }

@@ -16,7 +16,7 @@ class Menu extends Component {
         let {pizzas} = this.props.pizzas;
         let cartItems = this.props.cartItems;
         let subTotalAmountInEuro = 0;
-        cartItems.forEach( data => subTotalAmountInEuro = subTotalAmountInEuro + parseFloat(data.price));
+        cartItems.forEach( data => subTotalAmountInEuro = (subTotalAmountInEuro + parseFloat(data.price) * data.count));
         subTotalAmountInEuro = parseFloat(subTotalAmountInEuro.toFixed(2));
 
 
@@ -47,7 +47,6 @@ class Menu extends Component {
                             <div className="flex-item shopping-cart">
                                 <div className="cart-panel">
                                     Cart
-
                                 </div>
 
                                 {
@@ -55,9 +54,9 @@ class Menu extends Component {
                                 }
 
                                 <hr/>
-                                <p style={{padding: '5px'}}> Delivery Cost: €{deliveryCost} Euro</p>
-                                <p style={{padding: '5px'}}> Sub-Total Cost: €{subTotalAmountInEuro} Euro</p>
-                                <p style={{padding: '5px'}}> Total Cost: €{totalAmountInEuro} Euro | ${totalAmountInDollar} USD</p>
+                                <p style={{paddingLeft: '10px'}}> Delivery Cost: €{deliveryCost} Euro</p>
+                                <p style={{paddingLeft: '10px'}}> Sub-Total Cost: €{subTotalAmountInEuro} Euro</p>
+                                <p style={{paddingLeft: '10px'}}> Total Cost: €{totalAmountInEuro} Euro | ${totalAmountInDollar} USD</p>
 
 
                                 <Link style={{display: 'flex', textDecoration: 'none'}} to="/order">

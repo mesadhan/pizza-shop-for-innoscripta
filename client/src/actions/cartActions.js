@@ -1,20 +1,10 @@
 import {DECREASE_QUANTITY, INCREASE_QUANTITY, ADD_TO_CART, REMOVE_FROM_CART} from "./types";
 
 export const addToCart = (items, product) => (dispatch) => {
-    const cartItems = items.slice();
+    let cartItems = items.slice();
+    cartItems = calculateQuantity('in', cartItems, product)
 
-    let productAlreadyInCart = false;
-    cartItems.forEach((cp) => {
-        if (cp.id === product.id) {
-            cp.count += 1;
-            productAlreadyInCart = true;
-        }
-    });
-    if (!productAlreadyInCart) {
-        cartItems.push({ ...product, count: 1 });
-    }
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
     dispatch({ type: ADD_TO_CART, payload: { cartItems } });
 };
 
@@ -26,22 +16,38 @@ export const removeFromCart = (items, product) => (dispatch) => {
 
 
 export const increaseQuantity = (items, product) => (dispatch) => {
-    const cartItems = items.slice().filter((a) => a.id === product.id)
-
-    if(cartItems.length === 1){
-        cartItems[0].qnt += 1;
-    }
-    //localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    dispatch({ type: INCREASE_QUANTITY, payload: { cartItems } });
+    addToCart(items, product)(dispatch)
 };
-
 
 export const decreaseQuantity = (items, product) => (dispatch) => {
-    const cartItems = items.slice().filter((a) => a.id === product.id);
+    let cartItems = items.slice();
+    cartItems = calculateQuantity('de', cartItems, product)
 
-    if(cartItems.length === 1) {
-        cartItems[0].qnt += 1;
-    }
-    //localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    dispatch({ type: DECREASE_QUANTITY, payload: { cartItems } });
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    dispatch({ type: ADD_TO_CART, payload: { cartItems } });
 };
+
+
+let calculateQuantity = (type, cartItems, product) => {
+
+    let productAlreadyInCart = false;
+    cartItems.forEach((cp) => {
+        if (cp.id === product.id) {
+
+            if(type === 'in') {
+                cp.count += 1;
+            }else{
+                cp.count -= 1;
+            }
+
+            if(cp.count < 1) {
+                cp.count = 1;
+            }
+            productAlreadyInCart = true;
+        }
+    });
+    if (!productAlreadyInCart) {
+        cartItems.push({ ...product, count: 1 });
+    }
+    return cartItems;
+}

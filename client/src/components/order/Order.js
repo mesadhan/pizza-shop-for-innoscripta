@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import CartItem from "./CartItem";
+import CartItem from "../cart/CartItem";
 import './Order.scss';
 import {Link} from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { placeOrder } from '../actions/orderActions';
-import {loadUser} from "../actions/authActions";
+import { placeOrder } from '../../actions/orderActions';
+import {loadUser} from "../../actions/authActions";
 
 class Order extends Component {
 

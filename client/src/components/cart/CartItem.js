@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CartItem.scss';
 import {connect} from "react-redux";
-import {removeFromCart, addToCart, decreaseQuantity, increaseQuantity} from '../actions/cartActions';
+import {removeFromCart, addToCart, decreaseQuantity, increaseQuantity} from '../../actions/cartActions';
 
 class CartItem extends Component {
 

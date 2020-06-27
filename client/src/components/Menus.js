@@ -3,7 +3,7 @@ import './Menus.scss';
 import {fetchPizzas} from '../actions/pizzaActions';
 import { connect } from "react-redux";
 import Pizza from "./Pizza";
-import CartItem from "./CartItem";
+import CartItem from "./cart/CartItem";
 import {Link} from "react-router-dom";
 
 class Menu extends Component {

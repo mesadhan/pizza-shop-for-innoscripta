@@ -8,9 +8,9 @@ import Menus from "./components/Menus";
 import About from "./components/About";
 import HomePage from "./components/HomePage";
 import Login from "./components/auth/Login";
-import Order from "./components/Order";
+import Order from "./components/order/Order";
 import SignUp from "./components/auth/SignUp";
-import OrderHistory from "./components/OrderHistory";
+import OrderHistory from "./components/order/OrderHistory";
 import {ToastContainer} from "react-toastify";
 
 function App() {

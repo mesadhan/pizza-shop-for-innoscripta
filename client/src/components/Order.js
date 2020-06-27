@@ -5,7 +5,6 @@ import './Order.scss';
 import {Link} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import cartLogo from "../logo-cart.svg";
 
 class Order extends Component {
 
@@ -17,7 +16,7 @@ class Order extends Component {
     componentDidMount(){
         this.props.cartItems.map(item => {
             this.props.order.pizzas.push({pizza_id: item.id, units: item.count})
-            this.props.order.pizzaCost = this.props.order.pizzaCost + ( item.price * item.count )
+            return this.props.order.pizzaCost = this.props.order.pizzaCost + ( item.price * item.count )
         });
 
     }

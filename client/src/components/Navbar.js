@@ -11,7 +11,6 @@ class NavBar extends Component {
 
     render() {
         let cartCount = this.props.cartItems.length;
-        document.title = "Pizza Shop - Menu";
 
         return (
             <div data-test="navComponent" className="navComponent">

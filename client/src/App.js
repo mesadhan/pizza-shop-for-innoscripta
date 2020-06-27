@@ -22,7 +22,7 @@ function App() {
                     <Route exact path="/menus" component={Menus}/>
                     <Route exact path="/order" component={Order}/>
                     <Route exact path="/about" component={About}/>
-                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/auth" component={Login}/>
                 </Switch>
             </div>
 

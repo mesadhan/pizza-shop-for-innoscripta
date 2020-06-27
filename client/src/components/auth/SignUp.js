@@ -1,30 +1,46 @@
 import React, { Component } from 'react';
-import "./Login.scss";
+import "./SignUp.scss";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
+import {login} from "../../actions/authActions";
 
-class Login extends Component {
+class SignUp extends Component {
 
-    loginData = {
+    user = {
         email:"",
         password : ""
     }
+
     handleChange = input => e => {
-        e.preventDefault()
-        this.loginData[input] = e.target.value;
+        e.preventDefault();
+        this.user[input] = e.target.value;
+    };
+
+    loginUser = (e)=>{
+        e.preventDefault();
+        this.props.login(this.user);
     }
 
-    clickToLogin = (e) => {
-        e.preventDefault()
-        console.log('message', this.loginData)
+    registerUser = (e) => {
+        e.preventDefault();
+        this.props.login(this.user);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const {isAuthenticated} = this.props;
+        if(isAuthenticated){
+            this.props.history.push('/');
+        }
     }
 
     render() {
         return (<div data-test="loginComponent" className="loginComponent">
-            <p> Login Page </p>
+            <p> Register Page </p>
+
 
 
             <form id="order-form">
+
                 <input onChange={this.handleChange('email')} className="input-field" placeholder="Enter Email"/>
 
                 <br/>
@@ -32,7 +48,6 @@ class Login extends Component {
 
                 <br/>
                 <br/>
-                <button onClick={this.clickToLogin} style={{background: 'red'}}> Login </button>
 
                 <br/>
                 <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/">Home</Link>
@@ -44,7 +59,8 @@ class Login extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    //cartItems: state.cart.items
+    isAuthenticated: state.auth.isAuthenticated,
+    error: state.error
 });
 
-export default connect(mapStateToProps,{})(Login)
+export default connect(mapStateToProps,{login})(SignUp)

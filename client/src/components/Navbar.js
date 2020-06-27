@@ -5,12 +5,18 @@ import cartLogo from "../logo-cart.svg";
 import bandLogo from "../logo-band.png";
 
 import {connect} from 'react-redux';
-
+import {logout} from "../actions/authActions";
 
 class NavBar extends Component {
 
+    logout = (e) => {
+        e.preventDefault();
+        this.props.logout()
+    }
+
     render() {
         let cartCount = this.props.cartItems.length;
+        const {isAuthenticated}  = this.props.auth;
 
         return (
             <div data-test="navComponent" className="navComponent">
@@ -19,14 +25,25 @@ class NavBar extends Component {
                 </Link>
 
                 <div className="leftMenus">
-                    <Link className="pizza-shop-menu" to="/" style={{fontWeight: 'bold'}}>Pizza Shop</Link>
+                    <Link className="pizza-shop-menu" to="/" style={{fontWeight: 'bold'}}>Pizza Shop |</Link>
                     <Link to="/menus">Menus</Link>
                 </div>
 
                 <div className="rightMenus">
                     <div>
-                        <Link to="/About">About</Link>
-                        <Link to="/login">Login |</Link>
+
+                        {isAuthenticated ? (
+                            <span>
+                                <Link to="/order-history">| History</Link>
+                                <span onClick={this.logout} style={{color: "#fce8be", cursor: "pointer"}}>| Logout |</span>
+                            </span>
+                        ):(
+                            <span>
+                                <Link to="/About">| About</Link>
+                                <Link to="/login">| Login |</Link>
+                            </span>
+                        )}
+
                     </div>
 
                     <Link style={{display: 'flex'}} to="/order">
@@ -43,6 +60,8 @@ class NavBar extends Component {
 
 
 const mapStateToProps = (state) => ({
+    auth : state.auth,
     cartItems: state.cart.items,
 });
-export default connect(mapStateToProps,{})(NavBar);
+
+export default connect(mapStateToProps,{logout})(NavBar);

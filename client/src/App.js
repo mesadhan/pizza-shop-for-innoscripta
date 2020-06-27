@@ -7,8 +7,10 @@ import {Switch, Route,} from "react-router-dom";
 import Menus from "./components/Menus";
 import About from "./components/About";
 import HomePage from "./components/HomePage";
-import Login from "./components/Login";
+import Login from "./components/auth/Login";
 import Order from "./components/Order";
+import SignUp from "./components/auth/SignUp";
+import History from "./components/History";
 
 function App() {
 
@@ -22,7 +24,9 @@ function App() {
                     <Route exact path="/menus" component={Menus}/>
                     <Route exact path="/order" component={Order}/>
                     <Route exact path="/about" component={About}/>
-                    <Route exact path="/auth" component={Login}/>
+                    <Route exact path="/login" component={Login}/>
+                    <Route exact path="/signup" component={SignUp}/>
+                    <Route exact path="/order-history" component={History}/>
                 </Switch>
             </div>
 

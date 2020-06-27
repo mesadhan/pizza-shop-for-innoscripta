@@ -34,7 +34,7 @@ class NavBar extends Component {
 
                         {isAuthenticated ? (
                             <span>
-                                <Link to="/order-history">| History</Link>
+                                <Link to={`/order-history/${this.props.auth.user.id}`}>| History</Link>
                                 <span onClick={this.logout} style={{color: "#fce8be", cursor: "pointer"}}>| Logout |</span>
                             </span>
                         ):(

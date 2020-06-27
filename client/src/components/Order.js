@@ -17,7 +17,7 @@ class Order extends Component {
     componentDidMount(){
         this.props.cartItems.map(item => {
             this.props.order.pizzas.push({pizza_id: item.id, units: item.count})
-            this.props.order.pizza_cost = this.props.order.pizza_cost + ( item.price * item.count )
+            this.props.order.pizzaCost = this.props.order.pizzaCost + ( item.price * item.count )
         });
 
     }

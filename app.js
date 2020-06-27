@@ -26,6 +26,9 @@ app.get(`/`, async (req, res) => res.status(200).json({ message: 'Hello! from Pi
 // sub-routes
 const UserRoutes = require('./routes/users');
 const PizzasRoutes = require('./routes/pizzas');
+const OrderRoutes  = require('./routes/orders');
+
+
 
 
 
@@ -34,6 +37,7 @@ const PizzasRoutes = require('./routes/pizzas');
 // routes
 app.use(`${routePrefix}/users`, UserRoutes);
 app.use(`${routePrefix}/pizzas`, PizzasRoutes);
+app.use(`${routePrefix}/order`, OrderRoutes);
 
 
 

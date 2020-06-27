@@ -2,6 +2,9 @@
 const {
   Model
 } = require('sequelize');
+
+const Sequelize = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     /**
@@ -14,7 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Order.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    surname: DataTypes.STRING,
+    phone: DataTypes.STRING,
+    address: DataTypes.STRING,
+    pizzas: Sequelize.ARRAY(Sequelize.JSON),
+    zipcode: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
+    pizzaCost: DataTypes.DOUBLE,
+    deliveryCost: DataTypes.DOUBLE
   }, {
     sequelize,
     modelName: 'Order',

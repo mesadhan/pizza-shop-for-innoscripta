@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './CartItem.scss';
 import {connect} from "react-redux";
-import {removeFromCart, addToCart, decreaseQuantity, increaseQuantity} from '../actions/cartActions';
+import {removeFromCart, addToCart, decreaseQuantity, increaseQuantity} from '../../actions/cartActions';
 
 class CartItem extends Component {
 
     render() {
-        let {id, name, img, price, qnt, count} = this.props
+        let {id, name, img, price, count} = this.props
         let euroPrice = price
         let dollarPrice = price *  1.12;        // Here, 1 EURO = 1.12 Dollar
         dollarPrice = dollarPrice.toFixed(2);

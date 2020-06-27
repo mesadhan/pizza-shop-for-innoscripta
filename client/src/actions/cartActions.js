@@ -1,4 +1,4 @@
-import {DECREASE_QUANTITY, INCREASE_QUANTITY, ADD_TO_CART, REMOVE_FROM_CART} from "./types";
+import {ADD_TO_CART, REMOVE_FROM_CART} from "./types";
 
 export const addToCart = (items, product) => (dispatch) => {
     let cartItems = items.slice();

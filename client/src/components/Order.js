@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import CartItem from "./CartItem";
 import './Order.scss';
 import {Link} from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { placeOrder } from '../actions/orderActions';
 import {loadUser} from "../actions/authActions";
@@ -35,26 +35,20 @@ class Order extends Component {
     };
 
 
-    placeOrder = user => (e)=>{
+    submitOrder = user => (e)=>{
         e.preventDefault();
 
         if(user) {
             this.order.userId = user.id;
         }
 
-        toast.success('🚀 Order has been received!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
+        toast.success('🚀 Order has been received!');
 
         console.log("order data", this.order)
         document.getElementById("order-form").reset();
         this.props.placeOrder(this.order);
+
+        this.props.history.push('/menus');
     }
 
 
@@ -82,19 +76,10 @@ class Order extends Component {
             <div data-test="cartComponent" className="cartComponent">
 
 
+
                 {cartItems.length ? (
                     <div>
-                        <ToastContainer
-                            position="top-right"
-                            autoClose={5000}
-                            hideProgressBar={false}
-                            newestOnTop
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover
-                        />
+
 
                         <div className="cart-item-container">
                             <div className="cart-item cardBox" style={{ flexGrow: '5'}}>
@@ -106,7 +91,7 @@ class Order extends Component {
                                     <textarea onChange={this.handleChange('address')} cols="2" className="input-field" placeholder="Address"/>
                                     <input onChange={this.handleChange('zipcode')} className="input-field" placeholder="Zip Code"/><br/> <br/>
 
-                                    <button style={{float: 'right'}} onClick={this.placeOrder(user)} className="">Order</button>
+                                    <button style={{float: 'right'}} onClick={this.submitOrder(user)} className="">Order</button>
                                 </form>
 
 

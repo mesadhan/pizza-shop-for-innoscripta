@@ -11,11 +11,24 @@ import Login from "./components/auth/Login";
 import Order from "./components/Order";
 import SignUp from "./components/auth/SignUp";
 import History from "./components/History";
+import {ToastContainer} from "react-toastify";
 
 function App() {
 
     return (
         <div className="App">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
+
             <NavBar/>
 
             <div className="content-container">

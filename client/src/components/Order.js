@@ -5,27 +5,42 @@ import './Order.scss';
 import {Link} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { placeOrder } from '../actions/orderActions';
+import {loadUser} from "../actions/authActions";
 
 class Order extends Component {
 
-    handleChange = input => e => {
-        e.preventDefault();
-        this.props.order[input] = e.target.value;
-    };
-
-    componentDidMount(){
-        this.props.cartItems.map(item => {
-            this.props.order.pizzas.push({pizza_id: item.id, units: item.count})
-            return this.props.order.pizzaCost = this.props.order.pizzaCost + ( item.price * item.count )
-        });
-
+    order = {
+        name: "",
+        surname: "",
+        phone: "",
+        address: "",
+        pizzas: [],
+        zipcode: 0,
+        userId: null,
+        pizzaCost: 0,
+        deliveryCost: 10
     }
 
+    componentDidMount() {
+        this.props.cartItems.map(item => {
+            this.order.pizzas.push({pizza_id: item.id, units: item.count})
+            this.order.pizzaCost = this.order.pizzaCost + (item.price * item.count)
+        });
+    }
 
-    placeOrder = (e) =>{
+    handleChange = input => e => {
+        e.preventDefault();
+        this.order[input] = e.target.value;
+    };
+
+
+    placeOrder = user => (e)=>{
         e.preventDefault();
 
-        console.log("order data", this.props.order)
+        if(user) {
+            this.order.userId = user.id;
+        }
 
         toast.success('🚀 Order has been received!', {
             position: "top-right",
@@ -37,12 +52,15 @@ class Order extends Component {
             progress: undefined,
         });
 
+        console.log("order data", this.order)
         document.getElementById("order-form").reset();
+        this.props.placeOrder(this.order);
     }
 
 
     render() {
 
+        const {user} = this.props.auth;
         let cartItems = this.props.cartItems;
         let subTotalAmountInEuro = 0;
         cartItems.forEach( data => subTotalAmountInEuro = (subTotalAmountInEuro + parseFloat(data.price) * data.count));
@@ -88,7 +106,7 @@ class Order extends Component {
                                     <textarea onChange={this.handleChange('address')} cols="2" className="input-field" placeholder="Address"/>
                                     <input onChange={this.handleChange('zipcode')} className="input-field" placeholder="Zip Code"/><br/> <br/>
 
-                                    <button style={{float: 'right'}} onClick={this.placeOrder} className="">Order</button>
+                                    <button style={{float: 'right'}} onClick={this.placeOrder(user)} className="">Order</button>
                                 </form>
 
 
@@ -127,17 +145,7 @@ class Order extends Component {
 
 const mapStateToProps = (state) => ({
     cartItems: state.cart.items,
-    order: {
-        name: "",
-        surname: "",
-        phone: "",
-        address: "",
-        pizzas: [],
-        zipcode: 0,
-        userId: null,
-        pizzaCost: 0,
-        deliveryCost: 10
-    }
+    auth : state.auth
 });
 
-export default connect(mapStateToProps,{})(Order)
+export default connect(mapStateToProps,{placeOrder, loadUser})(Order)

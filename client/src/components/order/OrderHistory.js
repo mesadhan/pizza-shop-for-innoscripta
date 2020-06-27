@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 
 class OrderHistory extends Component {
 
+
     componentDidMount() {
         this.props.orderHistory(this.props.match.params.id);
     }
@@ -25,7 +26,8 @@ class OrderHistory extends Component {
 
             <p>Order History Page</p>
 
-            {
+
+            {orders.length > 0 &&
                 orders.map(order=>
 
                     <div className="" key={order.id}>
@@ -48,7 +50,8 @@ class OrderHistory extends Component {
 
 const mapStateToProps = (state) => ({
     orders: state.orders,
-    auth: state.auth
+    auth: state.auth,
+    error: state.error
 });
 
 export default connect(mapStateToProps,{orderHistory})(OrderHistory);

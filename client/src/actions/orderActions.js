@@ -14,6 +14,9 @@ export const placeOrder = (order) => async (dispatch) => {
         headers: headers,
         body: body,
     }).then(response => {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
         return response.json();
     }).then(res => {
         localStorage.setItem("cartItems", JSON.stringify([]));

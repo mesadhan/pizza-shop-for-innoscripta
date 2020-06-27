@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import "./SignUp.scss";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {login} from "../../actions/authActions";
+import {register} from "../../actions/authActions";
 
 class SignUp extends Component {
 
     user = {
+        username : "",
         email:"",
         password : ""
     }
@@ -16,14 +17,11 @@ class SignUp extends Component {
         this.user[input] = e.target.value;
     };
 
-    loginUser = (e)=>{
-        e.preventDefault();
-        this.props.login(this.user);
-    }
 
     registerUser = (e) => {
         e.preventDefault();
-        this.props.login(this.user);
+        this.user.username = this.user.email;
+        this.props.register(this.user);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -38,7 +36,6 @@ class SignUp extends Component {
             <p> Register Page </p>
 
 
-
             <form id="order-form">
 
                 <input onChange={this.handleChange('email')} className="input-field" placeholder="Enter Email"/>
@@ -48,6 +45,8 @@ class SignUp extends Component {
 
                 <br/>
                 <br/>
+                <button onClick={this.registerUser} className="btn btn-danger">Register</button>
+
 
                 <br/>
                 <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/">Home</Link>
@@ -63,4 +62,4 @@ const mapStateToProps = (state) => ({
     error: state.error
 });
 
-export default connect(mapStateToProps,{login})(SignUp)
+export default connect(mapStateToProps,{register})(SignUp)

@@ -122,7 +122,9 @@ class Order extends Component {
                                     </div>
 
                                     <div className="card-footer">
-                                        sdfgdsgf
+                                        <Link style={{textDecoration: 'none', textAlign: 'center'}} to="/">
+                                            To Store Order History please login!
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

@@ -30,7 +30,7 @@ class Menu extends Component {
 
         return (
             <div data-test="menusComponent" className="menusComponent">
-                <div className="menu-header">Menus Page</div>
+
 
                 <div className="flex-container-row">
 
@@ -44,23 +44,19 @@ class Menu extends Component {
 
 
                         {cartItems.length > 0 &&
-                            <div className="flex-item shopping-cart">
+                            <div className="flex-item shopping-cart " style={{maxWidth: "200px"}}>
                                 <div className="cart-panel">
-                                    Cart
+                                    <span> <strong> Sub-Total:</strong> €{subTotalAmountInEuro} | </span>
+                                    <span> <strong> Total:</strong> €{totalAmountInEuro} | ${totalAmountInDollar}</span>
                                 </div>
 
                                 {
                                     cartItems.map( cart =>  <CartItem key={cart.id} {...cart}/>)
                                 }
 
-                                <hr/>
-                                <p style={{paddingLeft: '10px'}}> Delivery Cost: €{deliveryCost} Euro</p>
-                                <p style={{paddingLeft: '10px'}}> Sub-Total Cost: €{subTotalAmountInEuro} Euro</p>
-                                <p style={{paddingLeft: '10px'}}> Total Cost: €{totalAmountInEuro} Euro | ${totalAmountInDollar} USD</p>
-
 
                                 <Link style={{display: 'flex', textDecoration: 'none'}} to="/order">
-                                    <button className="orderButton" style={{width: "100%"}}>Order ({cartItems.length} Items) </button>
+                                    <button className="btn btn-primary" style={{width: "100%"}}>Order ({cartItems.length} Items) </button>
                                 </Link>
 
                             </div>

@@ -33,24 +33,35 @@ class SignUp extends Component {
 
     render() {
         return (<div data-test="loginComponent" className="loginComponent">
-            <p> Register Page </p>
+
+            <div className="container row" style={{marginTop: "50px"}}>
+                <div className="col-md-6 offset-md-6">
+
+                    <div className="card">
+                        <div className="card-header">
+                           Create a New Account
+                        </div>
+                        <div className="card-body">
+                            <div className="form-group">
+                                <label htmlFor="email">Email address:</label>
+                                <input onChange={this.handleChange('email')} className="form-control"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="pwd">Password:</label>
+                                <input onChange={this.handleChange('password')} type="password" className="form-control" id="pwd"/>
+                            </div>
+
+                            <button onClick={this.registerUser} className="btn btn-primary float-right">Registration</button>
+                        </div>
+
+                        <div className="card-footer">
+                            <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/login">Login</Link>
+                        </div>
+                    </div>
 
 
-            <form id="order-form">
-
-                <input onChange={this.handleChange('email')} className="input-field" placeholder="Enter Email"/>
-
-                <br/>
-                <input onChange={this.handleChange('password')} className="input-field" type="password"/>
-
-                <br/>
-                <br/>
-                <button onClick={this.registerUser} className="btn btn-danger">Register</button>
-
-
-                <br/>
-                <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/">Home</Link>
-            </form>
+                </div>
+            </div>
 
 
         </div>)

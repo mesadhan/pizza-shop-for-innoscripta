@@ -3,6 +3,7 @@ import "./Login.scss";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {login} from "../../actions/authActions";
+import deliveryLogo from "../../logo-delivery.png";
 
 class Login extends Component {
 
@@ -32,25 +33,37 @@ class Login extends Component {
 
     render() {
         return (<div data-test="loginComponent" className="loginComponent">
-            <p> Login Page </p>
+
+            <div className="container row" style={{marginTop: "50px"}}>
+                <div className="col-md-4 offset-md-8">
+
+                    <div className="card">
+                        <div className="">
+                            <img className="card-img-top" src={deliveryLogo} alt="Card image" style={{width : "60%", padding: '20px'}}/>
+                        </div>
+                        <div className="card-body">
+                            <h4 className="card-title">User Login</h4>
+
+                            <div className="form-group">
+                                <label htmlFor="email">Email address:</label>
+                                <input onChange={this.handleChange('email')} className="form-control"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="pwd">Password:</label>
+                                <input onChange={this.handleChange('password')} type="password" className="form-control" id="pwd"/>
+                            </div>
+
+                            <button onClick={this.loginUser} className="btn btn-primary float-right">Login</button>
+                        </div>
+
+                        <div className="card-footer">
+                            <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/signup">Create a New Account</Link>
+                        </div>
+                    </div>
 
 
-            <form id="order-form">
-                <input onChange={this.handleChange('email')} className="input-field" placeholder="Enter Email"/>
-
-                <br/>
-                <input onChange={this.handleChange('password')} className="input-field" type="password"/>
-
-                <br/>
-                <br/>
-                <button onClick={this.loginUser} style={{background: 'red'}}> Login </button>
-
-                <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/signup">Create a account</Link>
-
-                <br/>
-                <Link style={{ textDecoration: 'none', textAlign: 'center'}} to="/">Home</Link>
-            </form>
-
+                </div>
+            </div>
 
         </div>)
     }

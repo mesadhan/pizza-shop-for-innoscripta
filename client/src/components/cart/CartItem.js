@@ -14,22 +14,25 @@ class CartItem extends Component {
         return (
             <div data-test="cartItemComponent" className="cartItemComponent">
 
-                <hr/>
-                <div className="cart-item-container">
-                    <div className="cart-item" >
-                        <img src={img} className="" style={{width: '40px'}} alt="logo" />
+
+                <div className="container row">
+                    <div className="col-md-12">
+                        <div style={{borderTop: '1px solid #bebebe', padding: "3px"}} className="">{name}</div>
                     </div>
-                    <div className="cart-item">€{euroPrice} ERO <br/> ${dollarPrice} USD</div>
-
-                    <button  className="cart-de" onClick={()=>this.props.decreaseQuantity(this.props.cartItems, this.props)} >-</button>
-
-                    <div className="cart-item">Qnt: {count}</div>
-                    <button  className="cart-in" onClick={()=>this.props.increaseQuantity(this.props.cartItems, this.props)} >+</button>
-
-                    <button  className="cart-remove" onClick={()=>this.props.removeFromCart(this.props.cartItems,{id: id})} >X</button>
-                    <br/>
-                    <div className="cart-item">{name}</div>
+                    <div className="col-md-4">
+                        <img src={img} className="img-thumbnail" alt="logo" />
+                    </div>
+                    <div className="col-md-8">
+                        <div className="row" style={{padding: "5px"}}>
+                            <button  className="btn btn-primary btn-sm" onClick={()=>this.props.decreaseQuantity(this.props.cartItems, this.props)} >-</button>
+                            <div className="">&nbsp;&nbsp; Qnt: {count} &nbsp;&nbsp;</div>
+                            <button  className="btn btn-success btn-sm" onClick={()=>this.props.increaseQuantity(this.props.cartItems, this.props)} >+</button>
+                            &nbsp;&nbsp;<button  className="btn btn-danger btn-sm" onClick={()=>this.props.removeFromCart(this.props.cartItems,{id: id})} >X</button>
+                        </div>
+                        <div style={{borderTop: '1px solid #bebebe'}} className="">€{euroPrice} ERO | ${dollarPrice} USD</div><br/>
+                    </div>
                 </div>
+
 
             </div>
         )

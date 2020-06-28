@@ -20,50 +20,7 @@ button {
   border-radius: 3px;
 }
 
-button.cart{
-  background-color: #F3771A;
-  color: #f1f1f1;
-  font-weight: bold;
-}
 
-button.cart-de{
-  background-color: #F3771A;
-  color: #f1f1f1;
-  font-weight: bold;
-  font-size: $cartButton;
-  width: $cartButtonWidth;
-  height: $cartButtonHeight;
-}
-button.cart-in{
-  background-color: green;
-  color: #f1f1f1;
-  font-weight: bold;
-  font-size: $cartButton;
-  width: $cartButtonWidth;
-  height: $cartButtonHeight;
-}
-button.cart-remove{
-  background-color: red;
-  color: #f1f1f1;
-  font-weight: bold;
-  font-size: $cartButton;
-  width: $cartButtonWidth;
-  height: $cartButtonHeight;
-}
-
-button.orderButton{
-  background-color: #EA2D27;
-  color: #f1f1f1;
-  font-weight: bold;
-  font-size: $cartButton;
-  height: $cartButtonHeight;
-  width: 100%;
-}
-
-button:hover {
-  cursor: pointer;
-  border: 1px solid;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

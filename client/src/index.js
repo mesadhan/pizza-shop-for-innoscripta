@@ -10,6 +10,7 @@ import { BrowserRouter as Router} from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import reduxThunk from 'redux-thunk';
 import rootReducer from './reducers';
+import { loadUser } from './actions/authActions';
 
 
 // create store
@@ -18,6 +19,7 @@ const cartItems = localStorage.getItem("cartItems")
 
 const initState = { cart: { items: cartItems  } };
 const store = createStore(rootReducer, initState, applyMiddleware(reduxThunk));
+store.dispatch(loadUser());
 
 ReactDOM.render(
     <React.StrictMode>

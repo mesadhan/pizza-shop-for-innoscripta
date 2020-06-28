@@ -1,0 +1,52 @@
+// top navbar
+.navComponent {
+  max-height: 50px;
+  min-height: 50px;
+  background: #EA2D27;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 0 7px rgba(0,0,0, 2.34);
+  //border-radius: 5px;
+
+  .leftMenus{
+    flex-grow: 5;
+    display: flex;
+    a {
+      padding: 0px 5px 0px 10px;
+      color: #fce8be;
+      text-decoration: none;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+  .rightMenus{
+    //flex-grow: 5;
+    display: flex;
+    align-items: center;
+    a {
+      padding: 0px 5px 0px 10px;
+      color: #fce8be;
+      text-decoration: none;
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+
+// cart icon
+$cartLogoColor: #fff;
+
+.icon-cart {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+
+  &:hover {
+    cursor: pointer;
+    padding: 1px;
+  }
+}

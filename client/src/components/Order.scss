@@ -1,0 +1,31 @@
+.cartComponent{
+
+  padding: 5px;
+
+    .cart-item-container{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .cart-item-container .cart-item {
+      margin: 15px;
+      padding: 5px;
+    }
+
+
+    .cardBox{
+      box-shadow: 0 0 7px rgba(0, 0, 0, .37);
+      margin: 5px;
+    }
+    .cartBox{
+      box-shadow: 0 0 7px rgba(0, 0, 0, .37);
+      margin: 5px;
+      max-width: 500px;
+    }
+
+  .input-field{
+    margin: 5px;
+    padding: 5px;
+    min-width: 98%;
+  }
+}

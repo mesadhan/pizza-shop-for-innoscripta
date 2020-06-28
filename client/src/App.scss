@@ -1,0 +1,147 @@
+.App {
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.content-container{
+  margin-bottom: 100px;
+}
+
+$cartButton: 15px;
+$cartButtonHeight: 40px;
+$cartButtonWidth: 40px;
+
+button {
+  transition-duration: 0.4s;
+  padding: 8px 10px;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+button.cart{
+  background-color: #F3771A;
+  color: #f1f1f1;
+  font-weight: bold;
+}
+
+button.cart-de{
+  background-color: #F3771A;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  width: $cartButtonWidth;
+  height: $cartButtonHeight;
+}
+button.cart-in{
+  background-color: green;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  width: $cartButtonWidth;
+  height: $cartButtonHeight;
+}
+button.cart-remove{
+  background-color: red;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  width: $cartButtonWidth;
+  height: $cartButtonHeight;
+}
+
+button.orderButton{
+  background-color: #EA2D27;
+  color: #f1f1f1;
+  font-weight: bold;
+  font-size: $cartButton;
+  height: $cartButtonHeight;
+  width: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+  border: 1px solid;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  //background-color: #282c34;
+  min-height: 100vh;
+  margin-top: -4%;
+  display: flex;
+  //flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.welcome-title{
+  color: #EA2D27;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px darkblue;
+}
+.welcome-span{
+  color: #fff;
+  border-bottom: 4px solid #F3771A;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px darkblue;
+}
+
+.delivery-desktop-logo{
+  height: 30vmin;
+}
+
+.logo-band{
+  height: 45px;
+  padding: 10px;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.shopping-cart {
+  margin-top: 15px;
+  //background: #e4d6d6;
+  border-radius: 3px;
+  min-width: 20%;
+
+  box-shadow: 0 0 7px rgba(0,0,0,.23);
+}
+
+@media screen and (max-width: 600px) {
+  .App {
+    width: 100%;
+  }
+  .delivery-desktop-logo{
+    display: none;
+  }
+  .logo-band{
+  }
+  .pizza-shop-menu {
+    display: none;
+  }
+  .shopping-cart{
+    display: none;
+  }
+}
+
+
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

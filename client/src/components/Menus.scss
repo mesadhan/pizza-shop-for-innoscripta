@@ -1,0 +1,56 @@
+$card-size: 330px;
+
+.menusComponent{
+
+}
+
+.menu-header {
+  text-align: center;
+  color: #F3771A;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.cart-panel{
+  text-align: center;
+  background: #EA2D27;
+  color: #ffffff;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px 0;
+  font-weight: bold;
+  box-shadow: 0 0 7px rgba(0,0,0,.34);
+  overflow: hidden;
+}
+
+.flex-container-row {
+  //min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-container .flex-item {
+  background-color: #f1f1f1;
+  min-width: $card-size;
+  max-width: $card-size;
+  margin: 15px;
+}
+
+.thumbnail {
+  min-width: $card-size;
+  max-width: $card-size;
+}
+
+.card-box {
+  border-radius: 5px;
+  overflow-wrap: break-word;
+  box-shadow: 0 0 7px rgba(0,0,0,.34);
+}

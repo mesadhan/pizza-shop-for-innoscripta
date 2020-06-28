@@ -1,0 +1,75 @@
+# home page
+GET http://localhost:8080/
+
+### users
+GET http://localhost:8080/api/users
+
+
+### make login user
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email":"a", "password":"a"
+}
+
+
+### registration
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{"username":"a","email":"a","password":"a"}
+
+
+### login based on username & password
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email":"a", "password":"a"
+}
+
+
+
+
+### varifiy register user token
+GET http://localhost:8080/api/users/user
+Content-Type: application/json
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTkzMjE5NTM4LCJleHAiOjE1OTMyMjMxMzh9.pp_Hl-5G644iQIFhWCvMblJ0tgAhZTVbN8aDdiQ1ovo
+
+
+### pizzas data
+GET http://localhost:8080/api/pizzas
+
+
+### add new pizza
+POST http://localhost:8080/api/pizzas/add
+Content-Type: application/json
+
+{
+  "name": "Maxican1",
+  "description": "Description2",
+  "price": "22.0",
+  "img": "default.jpg"
+}
+
+
+
+### Order api
+POST http://localhost:8080/api/order
+Content-Type: application/json
+
+{"name":"Md. Sadhan Sarker","surname":"sadhan","phone":"+8801730594127",
+  "address":"Magnolia  Apartments, Maloti B-5/A, 89, SENPARA, MIRPUR-10, MIRPUR, DHAKA-1216",
+  "pizzas":[{"pizza_id":2,"units":1},{"pizza_id":3,"units":1},{"pizza_id":6,"units":1}],
+  "zipcode":"1216","userId":null,"pizzaCost":0,"deliveryCost":10
+}
+
+
+### Order history by id
+GET http://localhost:8080/api/order/history/3
+x-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNTkzMjE5NTM4LCJleHAiOjE1OTMyMjMxMzh9.pp_Hl-5G644iQIFhWCvMblJ0tgAhZTVbN8aDdiQ1ovo
+Content-Type: application/json
+
+
+

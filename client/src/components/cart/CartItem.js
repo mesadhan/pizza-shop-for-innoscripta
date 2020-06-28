@@ -7,6 +7,8 @@ class CartItem extends Component {
 
     render() {
         let {id, name, img, price, count} = this.props
+        let imageFullUrl = 'http://localhost:8080/static/' + img;
+
         let euroPrice = price
         let dollarPrice = price *  1.12;        // Here, 1 EURO = 1.12 Dollar
         dollarPrice = dollarPrice.toFixed(2);
@@ -20,7 +22,7 @@ class CartItem extends Component {
                         <div style={{borderTop: '1px solid #bebebe', padding: "3px"}} className="">{name}</div>
                     </div>
                     <div className="col-md-4">
-                        <img src={img} className="img-thumbnail" alt="logo" />
+                        <img src={ imageFullUrl } className="img-thumbnail" alt="logo" />
                     </div>
                     <div className="col-md-8">
                         <div className="row" style={{padding: "5px"}}>

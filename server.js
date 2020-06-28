@@ -1,5 +1,6 @@
 const app = require('./app');
 const express = require('express');
+const path = require('path');
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

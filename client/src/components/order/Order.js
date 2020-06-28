@@ -92,7 +92,7 @@ class Order extends Component {
                                             <div className="form-group">
                                                 <label htmlFor="name">Name:</label>
                                                 <input id="name" onChange={this.handleChange('name')}
-                                                       className="form-control"/>
+                                                       className="form-control" placeholder="Enter Name"/>
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="phone">Phone:</label>

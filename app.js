@@ -20,7 +20,7 @@ const routePrefix = '/api';
 
 
 // default routes
-app.get(`/`, async (req, res) => res.status(200).json({ message: 'Hello! from Pizza Shop.' }));
+//app.get(`/`, async (req, res) => res.status(200).json({ message: 'Hello! from Pizza Shop.' }));
 
 
 // sub-routes

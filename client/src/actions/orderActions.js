@@ -9,7 +9,7 @@ export const placeOrder = (order) => async (dispatch) => {
     let body = JSON.stringify(order);
 
 
-    fetch('http://localhost:8080/api/order', {
+    fetch('/api/order', {
         method: 'POST',
         headers: headers,
         body: body,
@@ -27,7 +27,7 @@ export const placeOrder = (order) => async (dispatch) => {
 
 export const orderHistory = (user_id) => async (dispatch,getState) => {
 
-    fetch(`http://localhost:8080/api/order/history/${user_id}`, {
+    fetch(`/api/order/history/${user_id}`, {
         method: 'GET',
         headers: tokenConfig(getState)
     }).then(function(response) {

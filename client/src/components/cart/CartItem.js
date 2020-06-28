@@ -7,7 +7,8 @@ class CartItem extends Component {
 
     render() {
         let {id, name, img, price, count} = this.props
-        let imageFullUrl = 'http://localhost:8080/static/' + img;
+        let imageFullUrl = '/static/' + img;
+
 
         let euroPrice = price
         let dollarPrice = price *  1.12;        // Here, 1 EURO = 1.12 Dollar

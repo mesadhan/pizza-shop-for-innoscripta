@@ -17,7 +17,7 @@ export const loadUser = () => (dispatch, getState) => {
     dispatch({type: USER_LOADING});      // User loading
 
     let resStatus = 0;
-    fetch('http://localhost:8080/api/users/user', {
+    fetch('/api/users/user', {
         method: 'GET',
         headers: tokenConfig(getState)
     }).then(function(response) {
@@ -46,7 +46,7 @@ export const login = ({email, password}) => (dispatch) => {
 
 
     let resStatus = 0;
-    fetch('http://localhost:8080/api/users/login', {
+    fetch('/api/users/login', {
         method: 'POST',
         headers: headers,
         body: body,
@@ -104,7 +104,7 @@ export const register = ({username, email, password}) => (dispatch) => {
 
     const body = JSON.stringify({username, email, password});
 
-    fetch('http://localhost:8080/api/users/register', {
+    fetch('/api/users/register', {
         method: 'POST', // or 'PUT'
         headers: headers,
         body: body,

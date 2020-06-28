@@ -5,7 +5,7 @@ import {addToCart} from '../actions/cartActions';
 class Pizza extends Component {
     render() {
         const {id, name, description, price, img, qnt} = this.props
-        let imageFullUrl = 'http://localhost:8080/static/' + img;
+        let imageFullUrl = '/static/' + img;
 
         return (
             <div data-test="pizzaComponent" className="pizzaComponent" style={{display: 'flex'}}>

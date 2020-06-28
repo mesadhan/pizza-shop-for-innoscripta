@@ -13,7 +13,7 @@ class HomePage extends Component {
 
                 <div className="container" style={{marginTop: "50px"}}>
                     <div className="jumbotron">
-                        <h1 style={{color:"#FE8E2E"}}>Pizza 🍕 Shop</h1>
+                        <h1 style={{color:"#FE8E2E"}}>Pizza <span role="img" aria-label="pizza">🍕</span> Shop</h1>
                         <p>Do you have a craving for pizza? Well, sit back and relax because we will satisfy your craving by delivering your delicacy right at your doorstep. We offer the best pizza delivery in many places. You can order pizza online from us, and we will deliver it at your convenience so you always have a pizza near me.
                         </p>
 

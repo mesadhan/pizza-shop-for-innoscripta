@@ -7,7 +7,7 @@ class About extends Component {
 
             <div className="jumbotron">
                 <h1>About Us</h1>
-                <p> We deliver pizza <span>🍕</span> online. Just choose a pizza, put it into a cart, and make an order ...</p>
+                <p> We deliver pizza <span role="img" aria-label="pizza">🍕</span> online. Just choose a pizza, put it into a cart, and make an order ...</p>
             </div>
 
         </div>)

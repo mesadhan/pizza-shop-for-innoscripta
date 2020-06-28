@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {login} from "../../actions/authActions";
 import deliveryLogo from "../../logo-delivery.png";
+import {toast} from "react-toastify";
 
 class Login extends Component {
 
@@ -19,7 +20,14 @@ class Login extends Component {
 
     loginUser = (e)=>{
         e.preventDefault();
-        this.props.login(this.user);
+
+        if(!this.user.email || !this.user.password) {
+            toast.error('😞 Please enter all required fields');
+        }else{
+            this.props.login(this.user);
+            toast.error('✅ Login Successful');
+        }
+
     }
 
 
@@ -39,14 +47,14 @@ class Login extends Component {
 
                     <div className="card">
                         <div className="">
-                            <img className="card-img-top" src={deliveryLogo} alt="Card image" style={{width : "60%", padding: '20px'}}/>
+                            <img className="card-img-top" src={deliveryLogo} alt="login avater" style={{width : "60%", padding: '20px'}}/>
                         </div>
                         <div className="card-body">
                             <h4 className="card-title">User Login</h4>
 
                             <div className="form-group">
                                 <label htmlFor="email">Email address:</label>
-                                <input onChange={this.handleChange('email')} className="form-control"/>
+                                <input id="email" onChange={this.handleChange('email')} className="form-control"/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="pwd">Password:</label>

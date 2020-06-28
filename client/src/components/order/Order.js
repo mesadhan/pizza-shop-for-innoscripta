@@ -7,7 +7,6 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {placeOrder} from '../../actions/orderActions';
 import {loadUser} from "../../actions/authActions";
-import deliveryLogo from "../../logo-delivery.png";
 
 class Order extends Component {
 
@@ -26,7 +25,7 @@ class Order extends Component {
     componentDidMount() {
         this.props.cartItems.map(item => {
             this.order.pizzas.push({pizza_id: item.id, units: item.count})
-            this.order.pizzaCost = this.order.pizzaCost + (item.price * item.count)
+            return this.order.pizzaCost = this.order.pizzaCost + (item.price * item.count)
         });
     }
 
@@ -43,13 +42,18 @@ class Order extends Component {
             this.order.userId = user.id;
         }
 
-        toast.success('🚀 Order has been received!');
+        if(!this.order.name || !this.order.surname || !this.order.address
+            || !this.order.zipcode || !this.order.phone
+        ) {
+            toast.error('😞 Please enter all required fields');
+        }
+        else{
+            this.props.placeOrder(this.order);
+            toast.success('🚀 Order has been received!');
+            document.getElementById("order-form").reset();
 
-        console.log("order data", this.order)
-        document.getElementById("order-form").reset();
-        this.props.placeOrder(this.order);
-
-        this.props.history.push('/menus');
+            this.props.history.push('/menus');
+        }
     }
 
 

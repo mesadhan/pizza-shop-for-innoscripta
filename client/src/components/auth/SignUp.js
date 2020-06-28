@@ -3,6 +3,7 @@ import "./SignUp.scss";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
 import {register} from "../../actions/authActions";
+import {toast} from 'react-toastify';
 
 class SignUp extends Component {
 
@@ -20,8 +21,15 @@ class SignUp extends Component {
 
     registerUser = (e) => {
         e.preventDefault();
-        this.user.username = this.user.email;
-        this.props.register(this.user);
+
+        if(!this.user.email || !this.user.password) {
+            toast.error('😞 Please enter all required fields');
+        }else{
+
+            this.user.username = this.user.email;
+            this.props.register(this.user);
+            toast.error('✅ User Created Successfully');
+        }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {

@@ -4,7 +4,7 @@ Open a pizza 🍕 delivery business. This small web application built for orderi
 
 - [Product Live Demo.](https://radiant-spire-14204.herokuapp.com/)
 
-# Technologies
+### Technologies
 This web application uses a number of open source technologies
 
 - HTML5/SCSS/Bootstrap4
@@ -17,7 +17,7 @@ This web application uses a number of open source technologies
 - Git, Github
 
 
-# Local Installation Guide
+### Local Installation Guide
 
 Clone the project, Here, `Concurrently` npm package used so client & server run at the same time.
 
